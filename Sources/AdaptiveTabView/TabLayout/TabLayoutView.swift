@@ -8,12 +8,12 @@
 import SwiftUI
 import SequenceBuilder
 
-struct TabLayoutView<TabContentView: Sequence>: View where TabContentView.Element: View, TabContentView.Element: TitleImageProviding {
+struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabContentView {
 
-    private let tabViews: TabContentView
+    private let tabViews: TabContent
 
     init(
-        @SequenceBuilder _ tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContentView
+        @SequenceBuilder _ tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     ) {
         self.tabViews = tabViewBuilder(.tabView)
     }

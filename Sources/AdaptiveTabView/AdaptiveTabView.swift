@@ -32,11 +32,11 @@ public enum AdaptiveTabViewSplitViewKind {
 
 /// A container that displays as a ``TabView`` when the horiontal size class is `.compact`, and displays a ``NavigationSplitView`` when
 /// it's `.regular`. This allows for simple support of iPhone and iPad screens in one component.
-public struct AdaptiveTabView<TabContentView: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContentView.Element: View, TabContentView.Element: TitleImageProviding {
+public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
     private let splitViewKind: AdaptiveTabViewSplitViewKind
-    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContentView
+    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentBuilder: () -> DefaultContentView
     private let defaultDetailBuilder: () -> DefaultDetailView
     private let sidebarExtraContentBuilder: () -> SidebarExtraContent
@@ -57,7 +57,7 @@ public struct AdaptiveTabView<TabContentView: Sequence, SidebarExtraContent: Vie
     public init(
         appName: String,
         splitViewKind: AdaptiveTabViewSplitViewKind = .threeColumn,
-        @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContentView,
+        @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContent: @escaping () -> DefaultContentView = { EmptyView() },
         @ViewBuilder defaultDetail: @escaping () -> DefaultDetailView,
         @ViewBuilder sidebarExtraContent: @escaping () -> SidebarExtraContent = { EmptyView() }
@@ -98,6 +98,8 @@ public struct AdaptiveTabView<TabContentView: Sequence, SidebarExtraContent: Vie
 struct AdaptiveTabView_Previews: PreviewProvider {
     static var previews: some View {
         AdaptiveTabView(appName: "AdaptiveTabView") { (_) in
+            PreviewTitleImageProvidingView()
+            PreviewTitleImageProvidingView()
             PreviewTitleImageProvidingView()
         } defaultContent: {
             Text("Content")

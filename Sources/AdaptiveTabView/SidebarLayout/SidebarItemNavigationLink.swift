@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SidebarItemNavigationLink<Content>: View where Content: View, Content: TitleImageProviding {
+struct SidebarItemNavigationLink<Content: TabContentView>: View {
 
     let content: Content
 

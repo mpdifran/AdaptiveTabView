@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// An internal struct used for SwiftUI Previews.
-struct PreviewTitleImageProvidingView: View, TitleImageProviding {
+struct PreviewTitleImageProvidingView: TabContentView {
     let title = "Preview View"
     let systemImageName = "doc.text.image"
 

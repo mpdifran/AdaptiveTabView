@@ -8,15 +8,15 @@
 import SwiftUI
 import SequenceBuilder
 
-struct SidebarView<TabContentView: Sequence, SidebarExtraContent: View>: View where TabContentView.Element: View, TabContentView.Element: TitleImageProviding {
+struct SidebarView<TabContent: Sequence, SidebarExtraContent: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
-    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContentView
+    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let sidebarExtraContent: () -> SidebarExtraContent
 
     init(
         _ appName: String,
-        @SequenceBuilder tabViewBuilder: @escaping (AdaptiveTabViewContainerKind) -> TabContentView,
+        @SequenceBuilder tabViewBuilder: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder sidebarExtraContent: @escaping () -> SidebarExtraContent
     ) {
         self.appName = appName

@@ -8,11 +8,11 @@
 import SwiftUI
 import SequenceBuilder
 
-struct SidebarLayoutView<TabContentView: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContentView.Element: View, TabContentView.Element: TitleImageProviding {
+struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
     private let splitViewKind: AdaptiveTabViewSplitViewKind
-    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContentView
+    private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentView: DefaultContentView
     private let defaultDetailView: DefaultDetailView
     private let sidebarExtraContent: () -> SidebarExtraContent
@@ -20,7 +20,7 @@ struct SidebarLayoutView<TabContentView: Sequence, SidebarExtraContent: View, De
     init(
         _ appName: String,
         splitViewKind: AdaptiveTabViewSplitViewKind,
-        @SequenceBuilder tabViewBuilder: @escaping (AdaptiveTabViewContainerKind) -> TabContentView,
+        @SequenceBuilder tabViewBuilder: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContentBuilder: () -> DefaultContentView,
         @ViewBuilder defaultDetailBuilder: () -> DefaultDetailView,
         @ViewBuilder sidebarExtraContent: @escaping () -> SidebarExtraContent

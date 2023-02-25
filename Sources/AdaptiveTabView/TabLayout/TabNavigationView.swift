@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TabNavigationView<Content: View>: View where Content: View, Content: TitleImageProviding {
+struct TabNavigationView<Content: TabContentView>: View {
 
     private let content: Content
 
