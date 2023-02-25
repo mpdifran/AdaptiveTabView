@@ -16,7 +16,7 @@ let package = Package(
             targets: ["AdaptiveTabView"]),
     ],
     dependencies: [
-        .package(url: "git@github.com:andtie/SequenceBuilder.git", from: "0.0.7")
+        .package(url: "https://github.com/andtie/SequenceBuilder.git", from: "0.0.7")
     ],
     targets: [
         .target(
