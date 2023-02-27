@@ -35,6 +35,7 @@ public enum AdaptiveTabViewSplitViewKind {
 public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
+    private let defaultSelectedTab: UInt
     private let splitViewKind: AdaptiveTabViewSplitViewKind
     private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentBuilder: () -> DefaultContentView
@@ -44,6 +45,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     /// Creates an ``AdaptiveTabView``.
     /// - parameter appName: The name of the app. This appears as the navigation title of the sidebar when the kind
     /// is ``AdaptiveTabViewContainerKind.sidebarKind``.
+    /// - parameter defaultSelectedTab: Which tab is selected by default when in ``AdaptiveTabViewContainerKind.tabView``.
     /// - parameter splitViewKind: The type of split view to use.
     /// - parameter tabViews: A view builder to provide the views for the tabs. In ``AdaptiveTabViewContainerKind.tabView``, they appear as
     /// tabs within a ``NavigationView``. In ``AdaptiveTabViewContainerKind.sidebarView``, they appear at the top of the sidebar. You can
@@ -56,6 +58,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     /// is ``AdaptiveTabViewContainerKind.sidebarView``.
     public init(
         appName: String,
+        defaultSelectedTab: UInt = 0,
         splitViewKind: AdaptiveTabViewSplitViewKind = .threeColumn,
         @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContent: @escaping () -> DefaultContentView = { EmptyView() },
@@ -63,6 +66,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
         @ViewBuilder sidebarExtraContent: @escaping () -> SidebarExtraContent = { EmptyView() }
     ) {
         self.appName = appName
+        self.defaultSelectedTab = defaultSelectedTab
         self.splitViewKind = splitViewKind
         self.tabViewBuilder = tabViews
         self.defaultContentBuilder = defaultContent
@@ -77,6 +81,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
             switch horizontalSizeClass {
             case .compact:
                 TabLayoutView(
+                    defaultSelectedTab: defaultSelectedTab,
                     tabViewBuilder
                 )
             default:
