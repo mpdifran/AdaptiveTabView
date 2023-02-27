@@ -10,20 +10,19 @@ import SequenceBuilder
 
 struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabContentView {
 
-    @State private var selectedTab: UInt
-
+    private let selectedTab: Binding<UInt>?
     private let tabViews: TabContent
 
     init(
-        defaultSelectedTab: UInt,
+        selectedTab: Binding<UInt>?,
         @SequenceBuilder _ tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     ) {
-        self._selectedTab = State(initialValue: defaultSelectedTab)
+        self.selectedTab = selectedTab
         self.tabViews = tabViewBuilder(.tabView)
     }
 
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: selectedTab) {
             ForEach(sequence: tabViews) { (index, tabView) in
                 TabNavigationView {
                     tabView
@@ -36,7 +35,7 @@ struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabCo
 
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
-        TabLayoutView(defaultSelectedTab: 0) { (_) in
+        TabLayoutView(selectedTab: .constant(0)) { (_) in
             PreviewTitleImageProvidingView()
         }
     }
