@@ -10,11 +10,11 @@ import SequenceBuilder
 
 struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabContentView {
 
-    private let selectedTab: Binding<UInt>?
+    private let selectedTab: Binding<TabIdentifier>?
     private let tabViews: TabContent
 
     init(
-        selectedTab: Binding<UInt>?,
+        selectedTab: Binding<TabIdentifier>?,
         @SequenceBuilder _ tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     ) {
         self.selectedTab = selectedTab
@@ -27,7 +27,7 @@ struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabCo
                 TabNavigationView {
                     tabView
                 }
-                .tag(index)
+                .tag(tabView.id)
             }
         }
     }
@@ -35,7 +35,7 @@ struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabCo
 
 struct TabLayoutView_Previews: PreviewProvider {
     static var previews: some View {
-        TabLayoutView(selectedTab: .constant(0)) { (_) in
+        TabLayoutView(selectedTab: .constant("tabIdentifier")) { (_) in
             PreviewTitleImageProvidingView()
         }
     }

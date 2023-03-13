@@ -11,6 +11,7 @@ import SwiftUI
 struct PreviewTitleImageProvidingView: TabContentView {
     let title = "Preview View"
     let systemImageName = "doc.text.image"
+    let id = TabIdentifier("PreviewTitleImageProvidingView")
 
     var body: some View {
         NavigationLink {

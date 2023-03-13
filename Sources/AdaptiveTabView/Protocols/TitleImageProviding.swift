@@ -9,6 +9,7 @@ import SwiftUI
 
 /// A protocol to provide information for the tab item / sidebar item.
 public protocol TitleImageProviding {
+    var id: TabIdentifier { get }
     /// The title for the screen.
     var title: String { get }
     /// The system image to use for the icon for the screen.
@@ -25,6 +26,7 @@ extension TitleImageProviding {
 private struct PreviewExampleView: TitleImageProviding {
     let title = "Settings"
     let systemImageName = "person"
+    let id = TabIdentifier("PreviewExampleView")
 }
 
 struct TitleImageProviding_Previews: PreviewProvider {

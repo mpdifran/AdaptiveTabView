@@ -1,0 +1,406 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FF24DF4629BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF4529BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift */; };
+		FF24DF4A29BD1DA5009D1ECE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF24DF4929BD1DA5009D1ECE /* Assets.xcassets */; };
+		FF24DF4D29BD1DA5009D1ECE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF24DF4C29BD1DA5009D1ECE /* Preview Assets.xcassets */; };
+		FF24DF5929BD5460009D1ECE /* AdaptiveTabView in Frameworks */ = {isa = PBXBuildFile; productRef = FF24DF5829BD5460009D1ECE /* AdaptiveTabView */; };
+		FF24DF5C29BD555D009D1ECE /* MacOSTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */; };
+		FF24DF5E29BD5789009D1ECE /* iPhoneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */; };
+		FF24DF6029BD582F009D1ECE /* AppleWatchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */; };
+		FF3F099529BEA92500866251 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F099429BEA92500866251 /* ContentView.swift */; };
+		FF3F099A29BFD3AC00866251 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F099929BFD3AC00866251 /* SidebarView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FF24DF4229BD1DA4009D1ECE /* AdaptiveTabExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AdaptiveTabExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF24DF4529BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdaptiveTabExampleApp.swift; sourceTree = "<group>"; };
+		FF24DF4929BD1DA5009D1ECE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF24DF4C29BD1DA5009D1ECE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FF24DF5629BD1ED0009D1ECE /* AdaptiveTabView */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = AdaptiveTabView; path = ../..; sourceTree = "<group>"; };
+		FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSTabView.swift; sourceTree = "<group>"; };
+		FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneTabView.swift; sourceTree = "<group>"; };
+		FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchTabView.swift; sourceTree = "<group>"; };
+		FF3F099429BEA92500866251 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF3F099929BFD3AC00866251 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF24DF3F29BD1DA4009D1ECE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF24DF5929BD5460009D1ECE /* AdaptiveTabView in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FF24DF3929BD1DA4009D1ECE = {
+			isa = PBXGroup;
+			children = (
+				FF24DF5429BD1E9E009D1ECE /* Packages */,
+				FF24DF4429BD1DA4009D1ECE /* AdaptiveTabExample */,
+				FF24DF4329BD1DA4009D1ECE /* Products */,
+				FF24DF5729BD5460009D1ECE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FF24DF4329BD1DA4009D1ECE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF24DF4229BD1DA4009D1ECE /* AdaptiveTabExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF24DF4429BD1DA4009D1ECE /* AdaptiveTabExample */ = {
+			isa = PBXGroup;
+			children = (
+				FF24DF4529BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift */,
+				FF24DF5A29BD5552009D1ECE /* Tabs */,
+				FF3F099629BFA04400866251 /* Sidebar */,
+				FF3F099429BEA92500866251 /* ContentView.swift */,
+				FF24DF4929BD1DA5009D1ECE /* Assets.xcassets */,
+				FF24DF4B29BD1DA5009D1ECE /* Preview Content */,
+			);
+			path = AdaptiveTabExample;
+			sourceTree = "<group>";
+		};
+		FF24DF4B29BD1DA5009D1ECE /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FF24DF4C29BD1DA5009D1ECE /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FF24DF5429BD1E9E009D1ECE /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FF24DF5629BD1ED0009D1ECE /* AdaptiveTabView */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		FF24DF5729BD5460009D1ECE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FF24DF5A29BD5552009D1ECE /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */,
+				FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */,
+				FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		FF3F099629BFA04400866251 /* Sidebar */ = {
+			isa = PBXGroup;
+			children = (
+				FF3F099929BFD3AC00866251 /* SidebarView.swift */,
+			);
+			path = Sidebar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF24DF4129BD1DA4009D1ECE /* AdaptiveTabExample */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF24DF5029BD1DA5009D1ECE /* Build configuration list for PBXNativeTarget "AdaptiveTabExample" */;
+			buildPhases = (
+				FF24DF3E29BD1DA4009D1ECE /* Sources */,
+				FF24DF3F29BD1DA4009D1ECE /* Frameworks */,
+				FF24DF4029BD1DA4009D1ECE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AdaptiveTabExample;
+			packageProductDependencies = (
+				FF24DF5829BD5460009D1ECE /* AdaptiveTabView */,
+			);
+			productName = AdaptiveTabExample;
+			productReference = FF24DF4229BD1DA4009D1ECE /* AdaptiveTabExample.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF24DF3A29BD1DA4009D1ECE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FF24DF4129BD1DA4009D1ECE = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = FF24DF3D29BD1DA4009D1ECE /* Build configuration list for PBXProject "AdaptiveTabExample" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF24DF3929BD1DA4009D1ECE;
+			productRefGroup = FF24DF4329BD1DA4009D1ECE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF24DF4129BD1DA4009D1ECE /* AdaptiveTabExample */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF24DF4029BD1DA4009D1ECE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF24DF4D29BD1DA5009D1ECE /* Preview Assets.xcassets in Resources */,
+				FF24DF4A29BD1DA5009D1ECE /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF24DF3E29BD1DA4009D1ECE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF24DF6029BD582F009D1ECE /* AppleWatchTabView.swift in Sources */,
+				FF3F099529BEA92500866251 /* ContentView.swift in Sources */,
+				FF24DF5C29BD555D009D1ECE /* MacOSTabView.swift in Sources */,
+				FF24DF4629BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift in Sources */,
+				FF24DF5E29BD5789009D1ECE /* iPhoneTabView.swift in Sources */,
+				FF3F099A29BFD3AC00866251 /* SidebarView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF24DF4E29BD1DA5009D1ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF24DF4F29BD1DA5009D1ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF24DF5129BD1DA5009D1ECE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AdaptiveTabExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 538R2KUTXD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdfprojects.AdaptiveTabExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF24DF5229BD1DA5009D1ECE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"AdaptiveTabExample/Preview Content\"";
+				DEVELOPMENT_TEAM = 538R2KUTXD;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mdfprojects.AdaptiveTabExample;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF24DF3D29BD1DA4009D1ECE /* Build configuration list for PBXProject "AdaptiveTabExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF24DF4E29BD1DA5009D1ECE /* Debug */,
+				FF24DF4F29BD1DA5009D1ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF24DF5029BD1DA5009D1ECE /* Build configuration list for PBXNativeTarget "AdaptiveTabExample" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF24DF5129BD1DA5009D1ECE /* Debug */,
+				FF24DF5229BD1DA5009D1ECE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FF24DF5829BD5460009D1ECE /* AdaptiveTabView */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = AdaptiveTabView;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FF24DF3A29BD1DA4009D1ECE /* Project object */;
+}

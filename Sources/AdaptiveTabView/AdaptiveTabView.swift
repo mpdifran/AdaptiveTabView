@@ -35,7 +35,7 @@ public enum AdaptiveTabViewSplitViewKind {
 public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
-    private let selectedTab: Binding<UInt>?
+    private let selectedTab: Binding<TabIdentifier>?
     private let splitViewKind: AdaptiveTabViewSplitViewKind
     private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentBuilder: () -> DefaultContentView
@@ -58,7 +58,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     /// is ``AdaptiveTabViewContainerKind.sidebarView``.
     public init(
         appName: String,
-        selectedTab: Binding<UInt>? = nil,
+        selectedTab: Binding<TabIdentifier>? = nil,
         splitViewKind: AdaptiveTabViewSplitViewKind = .threeColumn,
         @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContent: @escaping () -> DefaultContentView = { EmptyView() },
@@ -87,6 +87,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
             default:
                 SidebarLayoutView(
                     appName,
+                    selectedTab: selectedTab,
                     splitViewKind: splitViewKind,
                     tabViewBuilder: tabViewBuilder,
                     defaultContentBuilder: defaultContentBuilder,

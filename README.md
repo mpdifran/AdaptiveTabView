@@ -10,9 +10,14 @@ Here's an example of how it can be used:
 ```swift
 @main
 struct MyApp: App {
+    @State private var selectedTab = MyFirstTab.identifier
+
     var body: some Scene {
         WindowGroup {
-            AdaptiveTabView(appName: "My App") {
+            AdaptiveTabView(
+                appName: "My App", 
+                selectedTab: selectedTab
+            ) {
                 MyFirstTab()
                 MySecondTab()
                 MyThirdTab()
@@ -33,9 +38,14 @@ struct MyApp: App {
 ```
 
 ```swift
+extension MyFirstTab {
+    static let identifier = TabIdentifier("MyFirstTab")
+}
+
 struct MyFirstTab: View, TitleImageProviding {
     let title = "My First Tab"
     let systemImageName = "1.square"
+    let id = MyFirstTab.identifier
 
     var body: some View {
         ...
