@@ -5,6 +5,10 @@
 
 An adaptive SwiftUI container that switches between [TabView](https://developer.apple.com/design/human-interface-guidelines/components/navigation-and-search/tab-bars) and [NavigationSplitView](https://developer.apple.com/design/human-interface-guidelines/components/layout-and-organization/split-views) based on horiontal size class. This framework allows you to easily build iPhone and iPad apps that conform to [Apple's Human Interface Guidelines](https://developer.apple.com/design/).
 
+| iPhone | iPad |
+| ------ | ---- |
+|![Preview iPhone](https://github.com/mpdifran/AdaptiveTabView/blob/main/Resources/iPhone.png)|![Preview iPad](https://github.com/mpdifran/AdaptiveTabView/blob/main/Resources/iPad.png)|
+
 Here's an example of how it can be used:
 
 ```swift
