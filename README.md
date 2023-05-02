@@ -36,7 +36,25 @@ struct MyApp: App {
                     }
                 }   
             }
+            .selectedTabTransformer(transformer)
         }
+    }
+    
+    let transformer = SelectedTabTransformer { (kind, tabIdentifier) in
+        switch kind {
+        case .tabView:
+            let sharedTabViewIdentifiers = [
+                MyFirstTab.identifier,
+                MySecondTab.identifier,
+                MyThirdTab.identifier
+            ]
+            if !sharedTabViewIdentifiers.contains(tabIdentifier) {
+                return MyFirstTab.identifier
+            }
+        case .sidebarView:
+            break
+        }
+        return tabIdentifier
     }
 }
 ```
