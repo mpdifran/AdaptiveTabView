@@ -10,11 +10,11 @@ import SequenceBuilder
 
 struct TabLayoutView<TabContent: Sequence>: View where TabContent.Element: TabContentView {
 
-    private let selectedTab: Binding<TabIdentifier>?
+    private let selectedTab: Binding<TabIdentifier>
     private let tabViews: TabContent
 
     init(
-        selectedTab: Binding<TabIdentifier>?,
+        selectedTab: Binding<TabIdentifier>,
         @SequenceBuilder _ tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     ) {
         self.selectedTab = selectedTab

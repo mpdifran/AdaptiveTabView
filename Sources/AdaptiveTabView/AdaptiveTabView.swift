@@ -35,17 +35,22 @@ public enum AdaptiveTabViewSplitViewKind {
 public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, DefaultContentView: View, DefaultDetailView: View>: View where TabContent.Element: TabContentView {
 
     private let appName: String
-    private let selectedTab: Binding<TabIdentifier>?
     private let splitViewKind: AdaptiveTabViewSplitViewKind
     private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentBuilder: () -> DefaultContentView
     private let defaultDetailBuilder: () -> DefaultDetailView
     private let sidebarExtraContentBuilder: () -> SidebarExtraContent
 
+    @Binding private var selectedTab: TabIdentifier
+    @State private var selectedTabViewTab: TabIdentifier
+    @State private var selectedSidebarViewTab: TabIdentifier
+
+    @Environment(\.selectedTabTransformer) var selectedTabTransformer
+
     /// Creates an ``AdaptiveTabView``.
     /// - parameter appName: The name of the app. This appears as the navigation title of the sidebar when the kind
-    /// is ``AdaptiveTabViewContainerKind.sidebarKind``.
-    /// - parameter selectedTab: Which tab is selected when in ``AdaptiveTabViewContainerKind.tabView``.
+    /// is ``AdaptiveTabViewContainerKind.sidebarView``.
+    /// - parameter selectedTab: The identifier of the selected tab in the currently dsisplayed mode.
     /// - parameter splitViewKind: The type of split view to use.
     /// - parameter tabViews: A view builder to provide the views for the tabs. In ``AdaptiveTabViewContainerKind.tabView``, they appear as
     /// tabs within a ``NavigationView``. In ``AdaptiveTabViewContainerKind.sidebarView``, they appear at the top of the sidebar. You can
@@ -58,7 +63,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     /// is ``AdaptiveTabViewContainerKind.sidebarView``.
     public init(
         appName: String,
-        selectedTab: Binding<TabIdentifier>? = nil,
+        selectedTab: Binding<TabIdentifier>,
         splitViewKind: AdaptiveTabViewSplitViewKind = .threeColumn,
         @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContent: @escaping () -> DefaultContentView = { EmptyView() },
@@ -66,12 +71,15 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
         @ViewBuilder sidebarExtraContent: @escaping () -> SidebarExtraContent = { EmptyView() }
     ) {
         self.appName = appName
-        self.selectedTab = selectedTab
+        self._selectedTab = selectedTab
         self.splitViewKind = splitViewKind
         self.tabViewBuilder = tabViews
         self.defaultContentBuilder = defaultContent
         self.defaultDetailBuilder = defaultDetail
         self.sidebarExtraContentBuilder = sidebarExtraContent
+
+        self._selectedTabViewTab = State(initialValue: selectedTab.wrappedValue)
+        self._selectedSidebarViewTab = State(initialValue: selectedTab.wrappedValue)
     }
 
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
@@ -81,13 +89,13 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
             switch horizontalSizeClass {
             case .compact:
                 TabLayoutView(
-                    selectedTab: selectedTab,
+                    selectedTab: $selectedTabViewTab,
                     tabViewBuilder
                 )
             default:
                 SidebarLayoutView(
                     appName,
-                    selectedTab: selectedTab,
+                    selectedTab: $selectedSidebarViewTab,
                     splitViewKind: splitViewKind,
                     tabViewBuilder: tabViewBuilder,
                     defaultContentBuilder: defaultContentBuilder,
@@ -96,14 +104,54 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
                 )
             }
         }
+        .onChange(of: horizontalSizeClass) { newValue in
+            guard let containerKind = newValue?.containerKind else { return }
+
+            selectedTab = selectedTabTransformer.transformer(containerKind, selectedTab)
+            switch containerKind {
+            case .tabView:
+                selectedTabViewTab = selectedTab
+            case .sidebarView:
+                selectedSidebarViewTab = selectedTab
+            }
+        }
+        .onChange(of: selectedTab) { newValue in
+            switch horizontalSizeClass {
+            case .compact:
+                guard selectedTabViewTab != newValue else { return }
+                selectedTabViewTab = newValue
+            default:
+                guard selectedSidebarViewTab != newValue else { return }
+                selectedSidebarViewTab = newValue
+            }
+        }
+        .onChange(of: selectedTabViewTab) { newValue in
+            guard selectedTab != newValue else { return }
+            selectedTab = newValue
+        }
+        .onChange(of: selectedSidebarViewTab) { newValue in
+            guard selectedTab != newValue else { return }
+            selectedTab = newValue
+        }
+    }
+}
+
+private extension UserInterfaceSizeClass {
+    var containerKind: AdaptiveTabViewContainerKind {
+        switch self {
+        case .compact: return .tabView
+        default: return .sidebarView
+        }
     }
 }
 
 // MARK: - Previews
 
 struct AdaptiveTabView_Previews: PreviewProvider {
+    @State static private var selectedTab = TabIdentifier("PreviewTitleImageProvidingView")
+
     static var previews: some View {
-        AdaptiveTabView(appName: "AdaptiveTabView") { (_) in
+        AdaptiveTabView(appName: "AdaptiveTabView", selectedTab: $selectedTab) { (_) in
             PreviewTitleImageProvidingView()
             PreviewTitleImageProvidingView()
             PreviewTitleImageProvidingView()

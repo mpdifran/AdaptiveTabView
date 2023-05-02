@@ -14,6 +14,7 @@
 		FF24DF5C29BD555D009D1ECE /* MacOSTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */; };
 		FF24DF5E29BD5789009D1ECE /* iPhoneTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */; };
 		FF24DF6029BD582F009D1ECE /* AppleWatchTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */; };
+		FF3927002A01D6CF009B2657 /* FolderTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3926FF2A01D6CF009B2657 /* FolderTabView.swift */; };
 		FF3F099529BEA92500866251 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F099429BEA92500866251 /* ContentView.swift */; };
 		FF3F099A29BFD3AC00866251 /* SidebarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3F099929BFD3AC00866251 /* SidebarView.swift */; };
 /* End PBXBuildFile section */
@@ -27,6 +28,7 @@
 		FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacOSTabView.swift; sourceTree = "<group>"; };
 		FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhoneTabView.swift; sourceTree = "<group>"; };
 		FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleWatchTabView.swift; sourceTree = "<group>"; };
+		FF3926FF2A01D6CF009B2657 /* FolderTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTabView.swift; sourceTree = "<group>"; };
 		FF3F099429BEA92500866251 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FF3F099929BFD3AC00866251 /* SidebarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +105,7 @@
 				FF24DF5B29BD555D009D1ECE /* MacOSTabView.swift */,
 				FF24DF5D29BD5789009D1ECE /* iPhoneTabView.swift */,
 				FF24DF5F29BD582F009D1ECE /* AppleWatchTabView.swift */,
+				FF3926FF2A01D6CF009B2657 /* FolderTabView.swift */,
 			);
 			path = Tabs;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				FF3F099529BEA92500866251 /* ContentView.swift in Sources */,
 				FF24DF5C29BD555D009D1ECE /* MacOSTabView.swift in Sources */,
 				FF24DF4629BD1DA4009D1ECE /* AdaptiveTabExampleApp.swift in Sources */,
+				FF3927002A01D6CF009B2657 /* FolderTabView.swift in Sources */,
 				FF24DF5E29BD5789009D1ECE /* iPhoneTabView.swift in Sources */,
 				FF3F099A29BFD3AC00866251 /* SidebarView.swift in Sources */,
 			);
