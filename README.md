@@ -15,6 +15,7 @@ Here's an example of how it can be used:
 @main
 struct MyApp: App {
     @State private var selectedTab = MyFirstTab.identifier
+    @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     var body: some Scene {
         WindowGroup {

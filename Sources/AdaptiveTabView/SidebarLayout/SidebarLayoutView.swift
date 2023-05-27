@@ -13,6 +13,7 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
     private let appName: String
     private let selectedTab: Binding<TabIdentifier>?
     private let splitViewKind: AdaptiveTabViewSplitViewKind
+    private let columnVisibility: Binding<NavigationSplitViewVisibility>
     private let tabViewBuilder: (AdaptiveTabViewContainerKind) -> TabContent
     private let defaultContentView: DefaultContentView
     private let defaultDetailView: DefaultDetailView
@@ -22,6 +23,7 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
         _ appName: String,
         selectedTab: Binding<TabIdentifier>?,
         splitViewKind: AdaptiveTabViewSplitViewKind,
+        columnVisibility: Binding<NavigationSplitViewVisibility>,
         @SequenceBuilder tabViewBuilder: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContentBuilder: () -> DefaultContentView,
         @ViewBuilder defaultDetailBuilder: () -> DefaultDetailView,
@@ -30,6 +32,7 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
         self.appName = appName
         self.selectedTab = selectedTab
         self.splitViewKind = splitViewKind
+        self.columnVisibility = columnVisibility
         self.tabViewBuilder = tabViewBuilder
         self.defaultContentView = defaultContentBuilder()
         self.defaultDetailView = defaultDetailBuilder()
@@ -39,7 +42,7 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
     var body: some View {
         switch splitViewKind {
         case .twoColumn:
-            NavigationSplitView {
+            NavigationSplitView(columnVisibility: columnVisibility) {
                 SidebarView(
                     appName,
                     selectedTab: selectedTab,
@@ -50,7 +53,7 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
                 defaultDetailView
             }
         case .threeColumn:
-            NavigationSplitView {
+            NavigationSplitView(columnVisibility: columnVisibility) {
                 SidebarView(
                     appName,
                     selectedTab: selectedTab,
@@ -68,7 +71,12 @@ struct SidebarLayoutView<TabContent: Sequence, SidebarExtraContent: View, Defaul
 
 struct SidebarLayoutView_Previews: PreviewProvider {
     static var previews: some View {
-        SidebarLayoutView("AdaptiveTabView", selectedTab: nil, splitViewKind: .threeColumn) { (_) in
+        SidebarLayoutView(
+            "AdaptiveTabView",
+            selectedTab: nil,
+            splitViewKind: .threeColumn,
+            columnVisibility: .constant(.doubleColumn)
+        ) { (_) in
             PreviewTitleImageProvidingView()
         } defaultContentBuilder: {
             Text("Content")
@@ -78,7 +86,12 @@ struct SidebarLayoutView_Previews: PreviewProvider {
             Text("Hello World")
         }
 
-        SidebarLayoutView("AdaptiveTabView", selectedTab: nil, splitViewKind: .twoColumn) { (_) in
+        SidebarLayoutView(
+            "AdaptiveTabView",
+            selectedTab: nil,
+            splitViewKind: .twoColumn,
+            columnVisibility: .constant(.doubleColumn)
+        ) { (_) in
             PreviewTitleImageProvidingView()
         } defaultContentBuilder: {
             Text("Content")

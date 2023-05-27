@@ -11,29 +11,28 @@ import AdaptiveTabView
 @main
 struct AdaptiveTabExampleApp: App {
     @State private var selectedTab = iPhoneTabView.identifier
+    @State private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
     var body: some Scene {
         WindowGroup {
-            VStack {
-                Text(selectedTab.id)
-                AdaptiveTabView(
-                    appName: "Example",
-                    selectedTab: $selectedTab
-                ) { (containerKind) in
-                    MacOSTabView()
-                    iPhoneTabView()
-                    AppleWatchTabView()
-                    if containerKind == .tabView {
-                        FolderTabView()
-                    }
-                } defaultDetail: {
-                    ContentView(title: "Empty Details")
-                } sidebarExtraContent: {
-                    SidebarView()
+            AdaptiveTabView(
+                appName: "Example",
+                selectedTab: $selectedTab,
+                columnVisibility: $columnVisibility
+            ) { (containerKind) in
+                MacOSTabView()
+                iPhoneTabView()
+                AppleWatchTabView()
+                if containerKind == .tabView {
+                    FolderTabView()
                 }
-                .selectedTabTransformer(transformer)
-                .navigationSplitViewStyle(.automatic)
+            } defaultDetail: {
+                ContentView(title: "Empty Details")
+            } sidebarExtraContent: {
+                SidebarView()
             }
+            .selectedTabTransformer(transformer)
+            .navigationSplitViewStyle(.automatic)
         }
     }
 

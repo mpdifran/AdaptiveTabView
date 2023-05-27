@@ -45,6 +45,9 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     @State private var selectedTabViewTab: TabIdentifier
     @State private var selectedSidebarViewTab: TabIdentifier
 
+    private let columnVisibilityBinding: Binding<NavigationSplitViewVisibility>?
+    @State private var columnVisibilityState: NavigationSplitViewVisibility = .doubleColumn
+
     @Environment(\.selectedTabTransformer) var selectedTabTransformer
 
     /// Creates an ``AdaptiveTabView``.
@@ -52,6 +55,8 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
     /// is ``AdaptiveTabViewContainerKind.sidebarView``.
     /// - parameter selectedTab: The identifier of the selected tab in the currently dsisplayed mode.
     /// - parameter splitViewKind: The type of split view to use.
+    /// - parameter columnVisibility: An optional ``Binding`` to the current column visibility of the split view when the kind
+    /// is ``AdaptiveTabViewContainerKind.sidebarView``.
     /// - parameter tabViews: A view builder to provide the views for the tabs. In ``AdaptiveTabViewContainerKind.tabView``, they appear as
     /// tabs within a ``NavigationView``. In ``AdaptiveTabViewContainerKind.sidebarView``, they appear at the top of the sidebar. You can
     /// use the ``AdaptiveTabViewContainerKind`` to conditionally show tab views.
@@ -65,6 +70,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
         appName: String,
         selectedTab: Binding<TabIdentifier>,
         splitViewKind: AdaptiveTabViewSplitViewKind = .threeColumn,
+        columnVisibility: Binding<NavigationSplitViewVisibility>? = nil,
         @SequenceBuilder tabViews: @escaping (AdaptiveTabViewContainerKind) -> TabContent,
         @ViewBuilder defaultContent: @escaping () -> DefaultContentView = { EmptyView() },
         @ViewBuilder defaultDetail: @escaping () -> DefaultDetailView,
@@ -73,6 +79,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
         self.appName = appName
         self._selectedTab = selectedTab
         self.splitViewKind = splitViewKind
+        self.columnVisibilityBinding = columnVisibility
         self.tabViewBuilder = tabViews
         self.defaultContentBuilder = defaultContent
         self.defaultDetailBuilder = defaultDetail
@@ -97,6 +104,7 @@ public struct AdaptiveTabView<TabContent: Sequence, SidebarExtraContent: View, D
                     appName,
                     selectedTab: $selectedSidebarViewTab,
                     splitViewKind: splitViewKind,
+                    columnVisibility: columnVisibilityBinding ?? $columnVisibilityState,
                     tabViewBuilder: tabViewBuilder,
                     defaultContentBuilder: defaultContentBuilder,
                     defaultDetailBuilder: defaultDetailBuilder,
